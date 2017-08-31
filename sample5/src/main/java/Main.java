@@ -5,13 +5,14 @@
 /// \date 03/05/13.
 /// Obs.: variaveis globais foram usadas por questoes didaticas mas nao sao recomendas para aplicacoes reais.
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.media.opengl.DebugGL;
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.glu.GLU;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class Main implements GLEventListener, KeyListener {
 	private GL gl;
@@ -19,6 +20,8 @@ public class Main implements GLEventListener, KeyListener {
 	private GLAutoDrawable glDrawable;
 	private Ponto4D pto1 = new Ponto4D(  0.0,   0.0, 0.0, 1.0);
 	private Ponto4D pto2 = new Ponto4D(200.0, 200.0, 0.0, 1.0);
+
+	private int primitiva = 0;
 
 	public void init(GLAutoDrawable drawable) {
 		System.out.println(" --- init ---");
@@ -40,36 +43,35 @@ public class Main implements GLEventListener, KeyListener {
 
 		SRU();
 
-		// TRIANGULO
-		gl.glColor3f(0.0f, 1.0f, 1.0f);
-		gl.glLineWidth(2.0f);
-		gl.glBegin(GL.GL_LINE_LOOP);
-		gl.glVertex2d(-100.0f,100.0f);
-		gl.glVertex2d(100.0f,100.0f);
-		gl.glVertex2d(0,-100.0f);
-		gl.glEnd();
+		// seu desenho ...
+		gl.glPointSize(3.0f);
+		gl.glLineWidth(5.0f);
+		gl.glBegin(primitiva);
+		gl.glColor3f(1.0f, 0.0f, 1.0f);
+		gl.glVertex2d(-200, -200);
 
-		desenhaCirculo(-100, 100, 100);
-		desenhaCirculo(100, 100, 100);
-		desenhaCirculo(0, -100, 100);
+		gl.glColor3f(0.0f, 0.0f, 1.0f);
+		gl.glVertex2d(-200, 200);
+
+		gl.glColor3f(0.0f, 1.0f, 0.0f);
+		gl.glVertex2d(200, 200);
+
+		gl.glColor3f(1.0f, 0.0f, 0.0f);
+		gl.glVertex2d(200, -200);
+		gl.glEnd();
 
 		gl.glFlush();
-	}
-
-	private void desenhaCirculo(double x, double y, double raio) {
-
-		// CIRCULO
-		gl.glColor3f(0.0f, 0.0f, 0.0f);
-		gl.glLineWidth(2.0f);
-		gl.glBegin(GL.GL_LINE_LOOP);
-		for (int angulo = 1; angulo <= 360; angulo++)
-			gl.glVertex2d(RetornaX(angulo,raio) + x, RetornaY(angulo,raio) + y);
-		gl.glEnd();
 	}
 
 	public void keyPressed(KeyEvent e) {
 		System.out.println(" --- keyPressed ---");
 		System.out.println(e.getKeyCode());
+		switch (e.getKeyCode()) {
+			case 32: //Barra de espaço
+				primitiva = primitiva == 9 ? 0 : primitiva+1;
+				glDrawable.display();
+				break;
+		}
 	}
 
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
