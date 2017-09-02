@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cg-samples</artifactId>
+        <groupId>br.furb</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sample6</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>br.furb</groupId>
+            <artifactId>luegen-rt</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/gluegen-rt.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>br.furb</groupId>
+            <artifactId>jogl</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/jogl.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+</project>
