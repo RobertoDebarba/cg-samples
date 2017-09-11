@@ -4,6 +4,14 @@ Simple computer graphics sample projects using OpenGL library in Java.
 
 *Projetos simples de computação gráfica desenvolvidos com a biblioteca OpenGL em Java.*
 
+![sample1](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample1.png)
+![sample2](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample2.gif)
+![sample3](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample3.png)
+![sample4](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample4.gif)
+![sample5](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample5.gif)
+![sample6](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample6.gif)
+![sample7](https://github.com/matheushoeltgebaum/cg-samples/blob/master/printscreens/sample7.gif)
+
 ## How to build
 
 ### Prerequisites
